@@ -7,7 +7,6 @@ public class Start {
     private JPanel startPanel;
     private JComboBox noOfPlayers;
     private JButton startButton;
-    private JLabel title;
 
 
     public Start() {
