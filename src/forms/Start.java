@@ -1,12 +1,15 @@
 package forms;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class Start {
 
     private JPanel startPanel;
     private JComboBox noOfPlayers;
-    private JButton startButton;
+    private JButton btnStart;
 
 
     public Start() {
@@ -21,6 +24,25 @@ public class Start {
         frame.setSize(400, 200);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        btnStart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+
+
+                int selectedNumber = Character.getNumericValue((Character) noOfPlayers.getSelectedItem());
+                System.out.println("Selected: " + selectedNumber);
+
+                CharacterSelection cs = new CharacterSelection(selectedNumber);
+
+            }
+        });
+
+
+
     }
+
+
 
 }
